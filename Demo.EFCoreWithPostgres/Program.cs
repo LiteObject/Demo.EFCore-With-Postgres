@@ -54,7 +54,7 @@ namespace Demo.EFCoreWithPostgres
 
             var options = new DbContextOptionsBuilder<ProductDbContext>()
                 // .UseSqlServer(connectionString)
-                .UseNpgsql(connectionString)
+                .UseNpgsql(connectionString, builder => builder.EnableRetryOnFailure())
                 .EnableSensitiveDataLogging()
                 .Options;
 

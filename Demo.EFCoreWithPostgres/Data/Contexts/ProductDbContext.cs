@@ -47,7 +47,7 @@ namespace Demo.EFCoreWithPostgres.Data.Contexts
                     "Server=(localdb)\\mssqllocaldb;Database=DemoEfCoreWithPostgres;Trusted_Connection=True;MultipleActiveResultSets=true",
                     option => { option.EnableRetryOnFailure(); }); */
 
-                optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=Demo.01");
+                optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=Demo.01", builder => builder.EnableRetryOnFailure());
                 optionsBuilder.EnableSensitiveDataLogging();
             }
 
