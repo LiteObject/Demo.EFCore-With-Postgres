@@ -1,0 +1,31 @@
+﻿CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    [UnitPrice] float NOT NULL,
+    [CreatedOn] datetime2 NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [UpdatedOn] datetime2 NULL,
+    [UpdatedBy] nvarchar(max) NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id])
+);
+GO
+
+
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'CreatedBy', N'CreatedOn', N'Name', N'UnitPrice', N'UpdatedBy', N'UpdatedOn') AND [object_id] = OBJECT_ID(N'[Products]'))
+    SET IDENTITY_INSERT [Products] ON;
+INSERT INTO [Products] ([Id], [CreatedBy], [CreatedOn], [Name], [UnitPrice], [UpdatedBy], [UpdatedOn])
+VALUES (1, NULL, NULL, N'Product One', 1.5E0, NULL, NULL);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'CreatedBy', N'CreatedOn', N'Name', N'UnitPrice', N'UpdatedBy', N'UpdatedOn') AND [object_id] = OBJECT_ID(N'[Products]'))
+    SET IDENTITY_INSERT [Products] OFF;
+GO
+
+
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'CreatedBy', N'CreatedOn', N'Name', N'UnitPrice', N'UpdatedBy', N'UpdatedOn') AND [object_id] = OBJECT_ID(N'[Products]'))
+    SET IDENTITY_INSERT [Products] ON;
+INSERT INTO [Products] ([Id], [CreatedBy], [CreatedOn], [Name], [UnitPrice], [UpdatedBy], [UpdatedOn])
+VALUES (2, NULL, NULL, N'Product Two', 2.5E0, NULL, NULL);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'CreatedBy', N'CreatedOn', N'Name', N'UnitPrice', N'UpdatedBy', N'UpdatedOn') AND [object_id] = OBJECT_ID(N'[Products]'))
+    SET IDENTITY_INSERT [Products] OFF;
+GO
+
+

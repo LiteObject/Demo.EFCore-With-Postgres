@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Demo.EFCoreWithPostgres": {
+      "commandName": "Project"
+    }
+  }
+}
