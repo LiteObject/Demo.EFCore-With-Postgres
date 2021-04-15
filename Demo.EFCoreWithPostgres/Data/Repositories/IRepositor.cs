@@ -41,6 +41,60 @@
         /// <summary>
         /// The find async.
         /// </summary>
+        /// <typeparam name="T1">
+        /// The return type
+        /// </typeparam>
+        /// <param name="predicate">
+        /// The predicate.
+        /// </param>
+        /// <param name="includeProperties">
+        /// The include properties.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        Task<List<T1>> FindAsync<T1>(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
+
+        /// <summary>
+        /// The add.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Task"/>.
+        /// </returns>
+        Task Add(T entity);
+
+        /// <summary>
+        /// The update.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        void Update(T entity);
+
+        /// <summary>
+        /// The delete.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
+        void Delete(T entity);
+
+        /// <summary>
+        /// The save changes async.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="int"/>.
+        /// </returns>
+        Task<int> SaveChangesAsync();
+
+        #region optional
+        
+        /// <summary>
+        /// The find async.
+        /// </summary>
         /// <param name="predicate">
         /// The predicate.
         /// </param>
@@ -62,23 +116,6 @@
         /// The <see cref="Task"/>.
         /// </returns>
         Task<List<T>> FindAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
-
-        /// <summary>
-        /// The find async.
-        /// </summary>
-        /// <typeparam name="T1">
-        /// The return type
-        /// </typeparam>
-        /// <param name="predicate">
-        /// The predicate.
-        /// </param>
-        /// <param name="includeProperties">
-        /// The include properties.
-        /// </param>
-        /// <returns>
-        /// The <see cref="Task"/>.
-        /// </returns>
-        Task<List<T1>> FindAsync<T1>(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
         /// <summary>
         /// The find async.
@@ -116,39 +153,6 @@
         /// </returns>
         List<T> Find(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
-        /// <summary>
-        /// The add.
-        /// </summary>
-        /// <param name="entity">
-        /// The entity.
-        /// </param>
-        /// <returns>
-        /// The <see cref="Task"/>.
-        /// </returns>
-        Task Add(T entity);
-
-        /// <summary>
-        /// The update.
-        /// </summary>
-        /// <param name="entity">
-        /// The entity.
-        /// </param>
-        void Update(T entity);
-
-        /// <summary>
-        /// The delete.
-        /// </summary>
-        /// <param name="entity">
-        /// The entity.
-        /// </param>
-        void Delete(T entity);
-
-        /// <summary>
-        /// The save changes async.
-        /// </summary>
-        /// <returns>
-        /// The <see cref="int"/>.
-        /// </returns>
-        Task<int> SaveChangesAsync();
+        #endregion
     }
 }
