@@ -44,6 +44,8 @@ namespace Demo.EFCoreWithPostgres
                     cfg.AddProfile(Activator.CreateInstance(profile) as Profile);
                 }*/
             }).CreateMapper();
+
+            Mapper.ConfigurationProvider.AssertConfigurationIsValid();
         }
 
         static async Task Main()
