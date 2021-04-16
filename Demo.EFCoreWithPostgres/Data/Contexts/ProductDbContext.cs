@@ -64,8 +64,11 @@ namespace Demo.EFCoreWithPostgres.Data.Contexts
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Product>().HasData(
-                new Product { Id = 1, Name = "Product One", UnitPrice = 1.5, CreatedOn = DateTime.Today },
-                new Product { Id = 2, Name = "Product Two", UnitPrice = 2.5, CreatedOn = DateTime.Today});
+                new { Id = 1, Name = "Product One", UnitPrice = 1.5, CreatedOn = DateTime.Today },
+                new { Id = 2, Name = "Product Two", UnitPrice = 2.5, CreatedOn = DateTime.Today },
+                new { Id = 3, Name = "Old Product", UnitPrice = 3.55, CreatedOn = DateTime.Today.AddDays(-150), UpdatedOn = DateTime.Today },
+                new { Id = 4, Name = "Expensive Product", UnitPrice = 150.99, CreatedOn = DateTime.Today, UpdatedOn = DateTime.Today }
+            );
         }
     }
 }

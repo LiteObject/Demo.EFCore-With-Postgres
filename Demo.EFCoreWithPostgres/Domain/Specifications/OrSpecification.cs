@@ -11,17 +11,17 @@
     /// <typeparam name="T">
     /// The type.
     /// </typeparam>
-    public class OrSpecification<T> : Specification<T>
+    public sealed class OrSpecification<T> : Specification<T>
     {
         /// <summary>
         /// The left.
         /// </summary>
-        private readonly Specification<T> left;
+        private readonly Specification<T> _left;
 
         /// <summary>
         /// The right.
         /// </summary>
-        private readonly Specification<T> right;
+        private readonly Specification<T> _right;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OrSpecification{T}"/> class.
@@ -34,8 +34,8 @@
         /// </param>
         public OrSpecification(Specification<T> left, Specification<T> right)
         {
-            this.right = right;
-            this.left = left;
+            this._right = right;
+            this._left = left;
         }
 
         /// <summary>
@@ -46,8 +46,9 @@
         /// </returns>
         public override Expression<Func<T, bool>> ToExpression()
         {
-            var leftExpression = this.left.ToExpression();
-            var rightExpression = this.right.ToExpression();
+            var leftExpression = this._left.ToExpression();
+            var rightExpression = this._right.ToExpression();
+
             var paramExpr = Expression.Parameter(typeof(T));
             var exprBody = Expression.OrElse(leftExpression.Body, rightExpression.Body);
             exprBody = (BinaryExpression)new ParameterReplacer(paramExpr).Visit(exprBody);

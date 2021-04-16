@@ -52,14 +52,32 @@ namespace Demo.EFCoreWithPostgres.Migrations
                         new
                         {
                             Id = 1,
+                            CreatedOn = new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Product One",
                             UnitPrice = 1.5
                         },
                         new
                         {
                             Id = 2,
+                            CreatedOn = new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local),
                             Name = "Product Two",
                             UnitPrice = 2.5
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedOn = new DateTime(2020, 11, 17, 0, 0, 0, 0, DateTimeKind.Local),
+                            Name = "Old Product",
+                            UnitPrice = 3.5499999999999998,
+                            UpdatedOn = new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedOn = new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local),
+                            Name = "Expensive Product",
+                            UnitPrice = 150.99000000000001,
+                            UpdatedOn = new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 #pragma warning restore 612, 618

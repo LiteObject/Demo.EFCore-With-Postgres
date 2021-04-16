@@ -31,8 +31,10 @@ namespace Demo.EFCoreWithPostgres.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "Name", "UnitPrice", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { 1, null, null, "Product One", 1.5, null, null },
-                    { 2, null, null, "Product Two", 2.5, null, null }
+                    { 1, null, new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local), "Product One", 1.5, null, null },
+                    { 2, null, new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local), "Product Two", 2.5, null, null },
+                    { 3, null, new DateTime(2020, 11, 17, 0, 0, 0, 0, DateTimeKind.Local), "Old Product", 3.5499999999999998, null, new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local) },
+                    { 4, null, new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local), "Expensive Product", 150.99000000000001, null, new DateTime(2021, 4, 16, 0, 0, 0, 0, DateTimeKind.Local) }
                 });
         }
 
