@@ -35,7 +35,7 @@ namespace Demo.EFCoreWithPostgres.Data.Contexts
         {
             /* Migrations with Multiple Providers: *****************************************************************
              * https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/providers?tabs=dotnet-core-cli
-             * Two options to work with multiple provider:
+             * Two options to work with multiple providers:
              * 1. Using multiple context types
              * 2. Using one context type
              *******************************************************************************************************/

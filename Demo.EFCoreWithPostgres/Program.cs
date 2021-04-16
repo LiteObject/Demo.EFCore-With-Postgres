@@ -60,7 +60,6 @@ namespace Demo.EFCoreWithPostgres
 
             await using var db = new ProductDbContext(options);
             // await db.Database.EnsureCreatedAsync();
-
             
             // Add a new product: 
             var oldProuct = new Product() { Name = "Old Product", UnitPrice = 3.55, CreatedOn = DateTime.Today.AddDays(-150), UpdatedOn = DateTime.Today};
@@ -85,13 +84,12 @@ namespace Demo.EFCoreWithPostgres
             // Option 3:
             using var repo = new GenericRepository<Product, ProductDbContext>(db, Mapper);
             var productDtos = await repo.FindAsync<ProductDto>(p => p.Name.Contains("One"));
+            productDtos.ForEach(p => Console.WriteLine(p.Name));
 
             // Example of specification:
-            var oldProducts = await repo.FindAsync(new OldProductSpecification().Or(new ExpensiveProductSpecification()));
-            oldProducts.ForEach(p => Console.WriteLine(p.Name));
+            var oldOrExensiveProducts = await repo.FindAsync(new OldProductSpecification().Or(new ExpensiveProductSpecification()));
+            oldOrExensiveProducts.ForEach(p => Console.WriteLine(p.Name));
 
-            productDtos.ForEach(p => Console.WriteLine(p.Name));
-            
             // Option 4:
             /*using var repo = new ProductRepository(db, Mapper);
             var productDtos = await repo.FindAsync<ProductDto>(p => p.Name.Contains("One"));
