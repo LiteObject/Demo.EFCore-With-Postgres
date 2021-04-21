@@ -93,5 +93,10 @@ namespace Demo.EFCoreWithPostgres
                 Console.WriteLine(p.Name);
             } */
         }
+
+        // To register generic repo in IoC:
+        // services.AddScoped<IRepository<Product>, GenericRepository<Product, ProductDbContext>>();
+        // services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
+        // There are other ways...
     }
 }
